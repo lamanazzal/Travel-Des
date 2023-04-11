@@ -1,14 +1,23 @@
 
-import './App.css';
-import Home from './components/Home/Home.js';
 
-const tourData =require("./data/data.json")
+import { Routes, Route } from "react-router-dom";
+import './App.css';
+import Home from './components/home/Home.js';
+//import Tours from "./components/Tours/Tours";
+import Navbar from "./components/navbar/Navbar";
+import TourDetails from "./components/tourDetails/TourDetails";
+const data =require("./data/db.json")
 function App() {
   return (
-    <div className="App">
+    <>
+     <Navbar />
+      <Routes>
+<Route  path='/' element={<Home  data={data}/>}/>
+<Route path='/city/:id' element={<TourDetails/>}/>
+
+      </Routes>
      
-     <Home data={tourData} />
-    </div>
+    </>
   );
 }
 
